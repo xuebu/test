@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "react",
+    "stage-0" // 沒有用這個無法使用 Rest Properties (...) 
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      // 自動載入部分使用到的組件
+      // import { get } from 'lodash'
+      // import get from 'lodash/get'
+      "transform-imports",
+      {
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+  ]
+}
